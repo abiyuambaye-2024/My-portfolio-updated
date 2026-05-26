@@ -6,7 +6,7 @@ export default function Footer() {
           <span className="text-accent">{"<"}</span>
           Abiyu Ambaye
           <span className="text-accent">{"/>"}</span>
-          <span className="ml-2">— Solution Architect & QA Officer</span>
+          <span className="ml-2">— API/Integration Developer Officer</span>
         </div>
         <div className="font-mono text-xs text-muted/50">
           © {new Date().getFullYear()} Abiyu Ambaye | Addis Ababa, Ethiopia
