@@ -2,7 +2,7 @@
 import { useEffect, useRef } from "react";
 
 const stats = [
-  { value: "4+", label: "Years Experience" },
+  { value: "5+", label: "Years Experience" },
   { value: "3", label: "Banks Served" },
   { value: "3.65", label: "CGPA" },
   { value: "7+", label: "Certifications" },
@@ -39,7 +39,7 @@ export default function About() {
           <div className="space-y-6">
             <p className="reveal text-muted leading-relaxed text-base" style={{ transitionDelay: "0.1s" }}>
               I'm a dedicated IT professional with over{" "}
-              <span className="text-text">4 years of experience</span> in the
+              <span className="text-text">5 years of experience</span> in the
               Ethiopian banking sector. My journey spans from system
               administration to solution architecture, giving me a holistic view
               of enterprise software ecosystems.

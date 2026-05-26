@@ -64,8 +64,8 @@ export default function Hero() {
           <div className="space-y-8">
             {/* Terminal prompt */}
             <div className="font-mono text-xs text-muted flex items-center gap-2">
-              <span className="text-accent">▶</span>
-              <span>~/portfolio</span>
+              <span className="text-accent font-bold">~</span>
+              <span>/portfolio</span>
               <span className="text-accent">$</span>
               <span className="text-text">whoami</span>
             </div>
@@ -179,7 +179,7 @@ export default function Hero() {
                   <div>
                     <span className="text-orange-300">experience</span>
                     <span className="text-muted">: </span>
-                    <span className="text-cyan-300">4</span>
+                    <span className="text-cyan-300">5</span>
                     <span className="text-muted">, </span>
                     <span className="text-muted">// years</span>
                   </div>
@@ -197,10 +197,8 @@ export default function Hero() {
                   </span>
                 </div>
                 <div className="flex items-center gap-2 text-muted">
-                  <span className="text-accent">▶</span>
-                  <span className="animate-[blink_1s_step-end_infinite] text-accent">
-                    █
-                  </span>
+                  <span className="text-accent font-mono text-xs">$</span>
+                  <span className="animate-[blink_1s_step-end_infinite] text-accent font-mono">|</span>
                 </div>
               </div>
             </div>

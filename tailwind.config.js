@@ -9,8 +9,9 @@ module.exports = {
     extend: {
       fontFamily: {
         mono: ["'JetBrains Mono'", "monospace"],
-        display: ["'Syne'", "sans-serif"],
-        body: ["'DM Sans'", "sans-serif"],
+        display: ["'Barlow Condensed'", "sans-serif"],
+        body: ["'Barlow'", "sans-serif"],
+        sans: ["'Barlow'", "sans-serif"],
       },
       colors: {
         bg: "#080C10",

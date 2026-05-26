@@ -8,8 +8,8 @@ const projects = [
     description:
       "A comprehensive digital library management system enabling users to browse, borrow, and manage books online. Features include user authentication, book catalog management, and borrowing history tracking.",
     tags: ["Web Development", "Database", "System Design"],
-    icon: "📚",
-    accent: "#00D4FF",
+    color: "#00D4FF",
+    number: "01",
   },
   {
     id: 2,
@@ -17,8 +17,8 @@ const projects = [
     description:
       "An e-learning platform that facilitates course management, student enrollment, and content delivery. Supports instructor dashboards, progress tracking, and interactive learning modules.",
     tags: ["E-Learning", "Web App", "User Management"],
-    icon: "🎓",
-    accent: "#7C3AED",
+    color: "#7C3AED",
+    number: "02",
   },
   {
     id: 3,
@@ -26,8 +26,8 @@ const projects = [
     description:
       "A property management and rental platform connecting landlords with tenants. Includes property listings, booking management, payment tracking, and tenant communication features.",
     tags: ["Property Tech", "Full Stack", "CRUD"],
-    icon: "🏠",
-    accent: "#10B981",
+    color: "#10B981",
+    number: "03",
   },
 ];
 
@@ -36,10 +36,7 @@ export default function Projects() {
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      (entries) =>
-        entries.forEach((e) => {
-          if (e.isIntersecting) e.target.classList.add("visible");
-        }),
+      (entries) => entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add("visible"); }),
       { threshold: 0.1 }
     );
     ref.current?.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
@@ -49,9 +46,7 @@ export default function Projects() {
   return (
     <section id="projects" ref={ref} className="py-32 relative bg-surface/30">
       <div className="absolute inset-0 grid-bg opacity-30" />
-
       <div className="max-w-6xl mx-auto px-6 relative">
-        {/* Section label */}
         <div className="reveal flex items-center gap-4 mb-16">
           <span className="font-mono text-accent text-sm">04.</span>
           <h2 className="font-display text-3xl font-700 text-text">Projects</h2>
@@ -62,44 +57,49 @@ export default function Projects() {
           {projects.map((project, i) => (
             <div
               key={project.id}
-              className="reveal tech-card p-6 flex flex-col group relative overflow-hidden"
+              className="reveal tech-card p-7 flex flex-col group relative overflow-hidden"
               style={{ transitionDelay: `${i * 0.15}s` }}
             >
-              {/* Top accent line */}
+              {/* Top accent line on hover */}
               <div
                 className="absolute top-0 left-0 right-0 h-px opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                style={{ background: `linear-gradient(90deg, transparent, ${project.accent}, transparent)` }}
+                style={{ background: `linear-gradient(90deg, transparent, ${project.color}, transparent)` }}
               />
 
-              {/* Icon */}
-              <div className="text-4xl mb-6 animate-float" style={{ animationDelay: `${i * 0.5}s` }}>
-                {project.icon}
+              {/* Project number */}
+              <div
+                className="font-mono text-5xl font-700 leading-none mb-6 transition-all duration-300"
+                style={{ color: project.color + "18" }}
+              >
+                {project.number}
               </div>
 
-              {/* Content */}
               <div className="space-y-3 flex-1">
-                <div className="flex items-start justify-between">
-                  <h3 className="font-display text-lg font-600 text-text group-hover:text-accent transition-colors">
+                <div className="flex items-start justify-between gap-2">
+                  <h3
+                    className="font-display text-lg font-700 text-text group-hover:transition-colors duration-200"
+                    style={{ "--tw-text-opacity": "1" } as React.CSSProperties}
+                  >
                     {project.title}
                   </h3>
-                  <span className="text-muted group-hover:text-accent transition-colors ml-2 shrink-0">
-                    ↗
-                  </span>
+                  <svg
+                    className="w-4 h-4 shrink-0 text-muted group-hover:text-accent group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all duration-200 mt-1"
+                    fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+                  </svg>
                 </div>
-                <p className="text-muted text-sm leading-relaxed">
-                  {project.description}
-                </p>
+                <p className="text-muted text-sm leading-relaxed">{project.description}</p>
               </div>
 
-              {/* Tags */}
               <div className="flex flex-wrap gap-2 mt-6 pt-4 border-t border-border">
                 {project.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="font-mono text-xs text-muted/70 px-2 py-0.5"
-                    style={{ color: project.accent + "99" }}
+                    className="font-mono text-xs px-2 py-0.5 border border-border/60"
+                    style={{ color: project.color + "90" }}
                   >
-                    #{tag.toLowerCase().replace(/\s/g, "")}
+                    {tag}
                   </span>
                 ))}
               </div>
@@ -107,8 +107,7 @@ export default function Projects() {
           ))}
         </div>
 
-        {/* Note */}
-        <p className="reveal text-center text-muted font-mono text-xs mt-12" style={{ transitionDelay: "0.5s" }}>
+        <p className="reveal text-center text-muted/50 font-mono text-xs mt-12" style={{ transitionDelay: "0.5s" }}>
           // More banking and enterprise projects available upon request
         </p>
       </div>

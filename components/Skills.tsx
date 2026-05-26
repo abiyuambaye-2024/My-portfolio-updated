@@ -4,7 +4,6 @@ import { useEffect, useRef } from "react";
 const skillGroups = [
   {
     category: "Core Expertise",
-    icon: "⚡",
     skills: [
       { name: "Solution Architecture", level: 90 },
       { name: "Quality Assurance", level: 92 },
@@ -14,7 +13,6 @@ const skillGroups = [
   },
   {
     category: "Banking Systems",
-    icon: "🏦",
     skills: [
       { name: "Mobile Banking", level: 88 },
       { name: "Internet Banking", level: 85 },
@@ -24,7 +22,6 @@ const skillGroups = [
   },
   {
     category: "Technical Skills",
-    icon: "🔧",
     skills: [
       { name: "API Integration", level: 87 },
       { name: "Database Management", level: 82 },
@@ -50,13 +47,10 @@ export default function Skills() {
         entries.forEach((e) => {
           if (e.isIntersecting) {
             e.target.classList.add("visible");
-            // Animate progress bars
             e.target.querySelectorAll(".progress-fill").forEach((bar) => {
               const el = bar as HTMLElement;
               const target = el.dataset.level || "0";
-              setTimeout(() => {
-                el.style.width = target + "%";
-              }, 200);
+              setTimeout(() => { el.style.width = target + "%"; }, 200);
             });
           }
         }),
@@ -69,34 +63,27 @@ export default function Skills() {
   return (
     <section id="skills" ref={ref} className="py-32 relative">
       <div className="max-w-6xl mx-auto px-6">
-        {/* Section label */}
         <div className="reveal flex items-center gap-4 mb-16">
           <span className="font-mono text-accent text-sm">03.</span>
           <h2 className="font-display text-3xl font-700 text-text">Skills</h2>
           <div className="flex-1 accent-line" />
         </div>
 
-        {/* Skill groups */}
         <div className="reveal grid md:grid-cols-3 gap-6 mb-12" style={{ transitionDelay: "0.1s" }}>
           {skillGroups.map((group, gi) => (
             <div key={group.category} className="tech-card p-6 space-y-5">
-              <div className="flex items-center gap-3">
-                <span className="text-2xl">{group.icon}</span>
-                <h3 className="font-display font-600 text-text text-sm uppercase tracking-wider">
+              {/* Category label — clean text, no emoji */}
+              <div className="pb-3 border-b border-border">
+                <h3 className="font-display font-700 text-text text-base uppercase tracking-widest">
                   {group.category}
                 </h3>
               </div>
-              <div className="accent-line" />
               <div className="space-y-4">
                 {group.skills.map((skill, si) => (
                   <div key={skill.name} className="space-y-1.5">
                     <div className="flex justify-between items-center">
-                      <span className="font-mono text-xs text-muted">
-                        {skill.name}
-                      </span>
-                      <span className="font-mono text-xs text-accent">
-                        {skill.level}%
-                      </span>
+                      <span className="font-sans text-sm text-muted">{skill.name}</span>
+                      <span className="font-mono text-xs text-accent">{skill.level}%</span>
                     </div>
                     <div className="h-px bg-border relative overflow-hidden">
                       <div
@@ -115,13 +102,13 @@ export default function Skills() {
         {/* Tech tags */}
         <div className="reveal" style={{ transitionDelay: "0.4s" }}>
           <p className="font-mono text-xs text-muted uppercase tracking-wider mb-6">
-            Technologies & Tools
+            Technologies &amp; Tools
           </p>
-          <div className="flex flex-wrap gap-3">
+          <div className="flex flex-wrap gap-2">
             {techTags.map((tag) => (
               <span
                 key={tag}
-                className="font-mono text-xs text-accent/80 border border-accent/20 px-3 py-1.5 hover:border-accent hover:text-accent hover:bg-accent/5 transition-all duration-200 cursor-default"
+                className="font-mono text-xs text-accent/70 border border-accent/20 px-3 py-1.5 hover:border-accent hover:text-accent hover:bg-accent/5 transition-all duration-200 cursor-default"
               >
                 {tag}
               </span>
@@ -131,13 +118,14 @@ export default function Skills() {
 
         {/* Languages */}
         <div className="reveal mt-12 grid sm:grid-cols-2 gap-4 max-w-md" style={{ transitionDelay: "0.5s" }}>
+          <p className="sm:col-span-2 font-mono text-xs text-muted uppercase tracking-wider mb-2">Languages</p>
           {[
             { lang: "English", level: "Fluent", pct: 85 },
             { lang: "Amharic", level: "Native", pct: 100 },
           ].map((l) => (
             <div key={l.lang} className="tech-card p-4">
               <div className="flex justify-between mb-2">
-                <span className="font-mono text-sm text-text">{l.lang}</span>
+                <span className="font-sans text-sm text-text">{l.lang}</span>
                 <span className="font-mono text-xs text-accent">{l.level}</span>
               </div>
               <div className="h-px bg-border relative overflow-hidden">
